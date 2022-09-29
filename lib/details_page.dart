@@ -9,14 +9,20 @@ class DetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final fInteger = ref.watch(defaultProvider);
+    final fInteger = ref.watch(futureProvider);
     final snInteger = ref.watch(stateNotifierProvider);
+
+    final fIntegerValue = fInteger.when(
+        data: (d) => d, error: (_, __) => "error", loading: () => "loading");
+
     return Scaffold(
-        body: Column(
+        body: Center(
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Future $fInteger"),
-        Text("State Notifier $snInteger"),
+        Text("Future Provider: $fIntegerValue"),
+        Text("State Notifier Provider: $snInteger"),
       ],
-    ));
+    )));
   }
 }
