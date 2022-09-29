@@ -13,7 +13,7 @@ class FirstPage extends ConsumerWidget {
 
   void clearProvider(WidgetRef ref) {
     ref.invalidate(stateNotifierProvider);
-    ref.invalidate(defaultProvider);
+    ref.invalidate(futureProvider);
   }
 
   @override
@@ -26,7 +26,7 @@ class FirstPage extends ConsumerWidget {
             child: const Text("Open Details")),
         ElevatedButton(
             onPressed: () => clearProvider(ref),
-            child: const Text("Clear Provider"))
+            child: const Text("Invalidate Providers"))
       ])),
     );
   }
