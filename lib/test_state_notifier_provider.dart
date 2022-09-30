@@ -7,7 +7,7 @@ class TestStateNotifierProvider extends StateNotifier<int> {
 }
 
 final stateNotifierProvider =
-    StateNotifierProvider.autoDispose<TestStateNotifierProvider, int>((ref) {
+    StateNotifierProvider<TestStateNotifierProvider, int>((ref) {
   log("state notifier provider initialized");
   return TestStateNotifierProvider(5);
 });
